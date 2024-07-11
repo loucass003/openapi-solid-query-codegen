@@ -1,12 +1,18 @@
 {
-  "name": "@loucass003/openapi-solid-query-codegen",
+  "name": "@llelievr.dev/openapi-solid-query-codegen",
   "version": "0.0.1",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "OpenAPI Solidjs Query Codegen",
   "bin": {
     "openapi-sq": "dist/cli.mjs"
   },
   "type": "module",
-  "workspaces": ["examples/*"],
+  "workspaces": [
+    "examples/*"
+  ],
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "lint": "biome check .",
@@ -23,7 +29,9 @@
   },
   "homepage": "https://github.com/loucass003/openapi-solid-query-codegen",
   "bugs": "https://github.com/loucass003/openapi-solid-query-codegen/issues",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "codegen",
     "solid-query",

@@ -1,0 +1,57 @@
+name: test
+concurrency:
+  group: test-${{ github.github.base_ref }}
+  cancel-in-progress: true
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm -w build
+
+      - name: Run codegen
+        run: pnpm --filter @loucass003/solid-app generate:api
+
+      - name: Archive generated query file
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-query-file-${{ matrix.os }}
+          path: examples/solid-app/openapi/queries/index.ts
+
+      - name: Run tsc
+        run: pnpm --filter @loucass003/solid-app test:generated
+
+      - name: Run biome
+        run: pnpm biome check .
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+
+      - name: Run test
+        run: pnpm test
+
+      - name: Report coverage
+        if: always() && matrix.os == 'ubuntu-latest'
+        uses:  davelosert/vitest-coverage-report-action@v2
