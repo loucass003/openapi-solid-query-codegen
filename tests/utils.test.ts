@@ -10,7 +10,7 @@ describe("utils", () => {
       "TestClass",
       undefined,
       undefined,
-      []
+      [],
     );
     const nodeWithoutJSDoc = addJSDocToNode(node, undefined);
 
@@ -28,7 +28,7 @@ describe("utils", () => {
       "TestClass",
       undefined,
       undefined,
-      []
+      [],
     );
     // create file source
     const tsFile = ts.createSourceFile(
@@ -36,14 +36,14 @@ describe("utils", () => {
       "",
       ts.ScriptTarget.Latest,
       false,
-      ts.ScriptKind.TS
+      ts.ScriptKind.TS,
     );
 
     // create source file
     const tsSource = ts.factory.createSourceFile(
       [node],
       ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
-      ts.NodeFlags.None
+      ts.NodeFlags.None,
     );
 
     // print source file
@@ -100,7 +100,7 @@ export class TestClass {
       "TestClass",
       undefined,
       undefined,
-      []
+      [],
     );
     // create file source
     const tsFile = ts.createSourceFile(
@@ -108,14 +108,14 @@ export class TestClass {
       "",
       ts.ScriptTarget.Latest,
       false,
-      ts.ScriptKind.TS
+      ts.ScriptKind.TS,
     );
 
     // create source file
     const tsSource = ts.factory.createSourceFile(
       [node],
       ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
-      ts.NodeFlags.None
+      ts.NodeFlags.None,
     );
 
     // print source file
@@ -168,7 +168,7 @@ export class TestClass {
       "TestClass",
       undefined,
       undefined,
-      []
+      [],
     );
     // create file source
     const tsFile = ts.createSourceFile(
@@ -176,14 +176,14 @@ export class TestClass {
       "",
       ts.ScriptTarget.Latest,
       false,
-      ts.ScriptKind.TS
+      ts.ScriptKind.TS,
     );
 
     // create source file
     const tsSource = ts.factory.createSourceFile(
       [node],
       ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
-      ts.NodeFlags.None
+      ts.NodeFlags.None,
     );
 
     // print source file
@@ -229,7 +229,7 @@ export class TestClass {
       "TestClass",
       undefined,
       undefined,
-      []
+      [],
     );
     // create file source
     const tsFile = ts.createSourceFile(
@@ -237,14 +237,14 @@ export class TestClass {
       "",
       ts.ScriptTarget.Latest,
       false,
-      ts.ScriptKind.TS
+      ts.ScriptKind.TS,
     );
 
     // create source file
     const tsSource = ts.factory.createSourceFile(
       [node],
       ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
-      ts.NodeFlags.None
+      ts.NodeFlags.None,
     );
 
     // print source file

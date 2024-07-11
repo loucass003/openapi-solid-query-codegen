@@ -8,7 +8,7 @@ import { generate } from "../src/generate.mjs";
 const readOutput = (fileName: string) => {
   return readFileSync(
     path.join(__dirname, "outputs", "queries", fileName),
-    "utf-8"
+    "utf-8",
   );
 };
 

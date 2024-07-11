@@ -40,7 +40,7 @@ axiosInstance.interceptors.request.use(
   (error) => {
     // Do something with request error
     return Promise.reject(error);
-  }
+  },
 );
 
 // Add a response interceptor
@@ -54,12 +54,12 @@ axiosInstance.interceptors.response.use(
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     return Promise.reject(error);
-  }
+  },
 );
 
 export const request = <T>(
   config: OpenAPIConfig,
-  options: ApiRequestOptions
+  options: ApiRequestOptions,
 ): CancelablePromise<T> => {
   return new CancelablePromise((resolve, reject, onCancel) => {
     onCancel(() => source.cancel("The user aborted a request."));

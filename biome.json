@@ -4,11 +4,7 @@
     "enabled": true
   },
   "files": {
-    "ignore": [
-      "dist",
-      "examples/solid-app/openapi",
-      "coverage"
-    ]
+    "ignore": ["dist", "examples/solid-app/openapi", "coverage"]
   },
   "linter": {
     "enabled": true,

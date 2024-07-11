@@ -8,19 +8,19 @@ export const createExports = (service: Service) => {
   const methods = klasses.flatMap((k) => k.methods);
 
   const allGet = methods.filter((m) =>
-    m.httpMethodName.toUpperCase().includes("GET")
+    m.httpMethodName.toUpperCase().includes("GET"),
   );
   const allPost = methods.filter((m) =>
-    m.httpMethodName.toUpperCase().includes("POST")
+    m.httpMethodName.toUpperCase().includes("POST"),
   );
   const allPut = methods.filter((m) =>
-    m.httpMethodName.toUpperCase().includes("PUT")
+    m.httpMethodName.toUpperCase().includes("PUT"),
   );
   const allPatch = methods.filter((m) =>
-    m.httpMethodName.toUpperCase().includes("PATCH")
+    m.httpMethodName.toUpperCase().includes("PATCH"),
   );
   const allDelete = methods.filter((m) =>
-    m.httpMethodName.toUpperCase().includes("DELETE")
+    m.httpMethodName.toUpperCase().includes("DELETE"),
   );
 
   const allGetQueries = allGet.map((m) => createUseQuery(m));
@@ -45,7 +45,7 @@ export const createExports = (service: Service) => {
       returnType,
       key,
       queryKeyFn,
-    ]
+    ],
   );
   const commonInMutations = allMutations.flatMap(({ mutationResult }) => [
     mutationResult,

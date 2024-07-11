@@ -50,7 +50,7 @@ describe(fileName, () => {
 
     const mainExports = exports.mainExports.map(
       // @ts-ignore
-      (e) => e.declarationList.declarations[0].name.escapedText
+      (e) => e.declarationList.declarations[0].name.escapedText,
     );
     expect(mainExports).toStrictEqual([
       "createDefaultServiceFindPets",

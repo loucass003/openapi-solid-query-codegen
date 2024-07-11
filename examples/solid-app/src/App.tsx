@@ -1,9 +1,9 @@
-import { Component, createSignal, For } from "solid-js";
+import { type Component, For, createSignal } from "solid-js";
 import {
   createPetServiceFindPetsByStatus,
   createStoreServicePlaceOrder,
 } from "../openapi/queries";
-import { Pet } from "../openapi/requests";
+import type { Pet } from "../openapi/requests";
 
 export const App: Component = () => {
   const [status, setStatus] = createSignal<Pet["status"]>("available");
@@ -35,7 +35,7 @@ export const App: Component = () => {
                         console.log("success");
                       },
                       onError: (error) => console.error(error),
-                    }
+                    },
                   );
                 }}
               >
