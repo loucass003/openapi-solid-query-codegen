@@ -6,7 +6,7 @@
 
 > Node.js library that generates [Solid Query (also called TanStack Query)](https://tanstack.com/query) hooks based on an OpenAPI specification file.
 
-<!-- [![npm version](https://badge.fury.io/js/%407nohe%2Fopenapi-react-query-codegen.svg)](https://badge.fury.io/js/%407nohe%2Fopenapi-react-query-codegen) -->
+[![npm version](https://badge.fury.io/js/@llelievr.dev%2Fopenapi-solid-query-codegen.svg)](https://badge.fury.io/js/@llelievr.dev%2Fopenapi-solid-query-codegen)
 
 ## Features
 
