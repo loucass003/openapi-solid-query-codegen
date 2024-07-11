@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "OpenAPI Solidjs Query Codegen",
   "bin": {
-    "openapi-rq": "dist/cli.mjs"
+    "openapi-sq": "dist/cli.mjs"
   },
   "type": "module",
   "workspaces": [

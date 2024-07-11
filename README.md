@@ -25,7 +25,7 @@ Register the command to the `scripts` property in your package.json file.
 ```json
 {
   "scripts": {
-    "codegen": "openapi-rq -i ./petstore.yaml -c axios"
+    "codegen": "openapi-sq -i ./petstore.yaml -c axios"
   }
 }
 ```
@@ -33,15 +33,15 @@ Register the command to the `scripts` property in your package.json file.
 You can also run the command without installing it in your project using the npx command.
 
 ```bash
-$ npx --package @loucass003/openapi-solid-query-codegen openapi-rq -i ./petstore.yaml -c axios
+$ npx --package @loucass003/openapi-solid-query-codegen openapi-sq -i ./petstore.yaml -c axios
 ```
 
 ## Usage
 
 ```
-$ openapi-rq --help
+$ openapi-sq --help
 
-Usage: openapi-rq [options]
+Usage: openapi-sq [options]
 
 Generate Solid Query code based on OpenAPI
 
@@ -69,7 +69,7 @@ Options:
 #### Command
 
 ```
-$ openapi-rq -i ./petstore.yaml
+$ openapi-sq -i ./petstore.yaml
 ```
 
 #### Output directory structure

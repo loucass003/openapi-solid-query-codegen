@@ -33,7 +33,7 @@ async function setupProgram() {
   const version = packageJson.version;
 
   program
-    .name("openapi-rq")
+    .name("openapi-sq")
     .version(version)
     .description("Generate Solid Query code based on OpenAPI")
     .requiredOption(
