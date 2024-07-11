@@ -1,0 +1,83 @@
+import { createPrefetch } from "./createPrefetch.mjs";
+import { createUseMutation } from "./createUseMutation.mjs";
+import { createUseQuery } from "./createUseQuery.mjs";
+import type { Service } from "./service.mjs";
+
+export const createExports = (service: Service) => {
+  const { klasses } = service;
+  const methods = klasses.flatMap((k) => k.methods);
+
+  const allGet = methods.filter((m) =>
+    m.httpMethodName.toUpperCase().includes("GET")
+  );
+  const allPost = methods.filter((m) =>
+    m.httpMethodName.toUpperCase().includes("POST")
+  );
+  const allPut = methods.filter((m) =>
+    m.httpMethodName.toUpperCase().includes("PUT")
+  );
+  const allPatch = methods.filter((m) =>
+    m.httpMethodName.toUpperCase().includes("PATCH")
+  );
+  const allDelete = methods.filter((m) =>
+    m.httpMethodName.toUpperCase().includes("DELETE")
+  );
+
+  const allGetQueries = allGet.map((m) => createUseQuery(m));
+  const allPrefetchQueries = allGet.map((m) => createPrefetch(m));
+
+  const allPostMutations = allPost.map((m) => createUseMutation(m));
+  const allPutMutations = allPut.map((m) => createUseMutation(m));
+  const allPatchMutations = allPatch.map((m) => createUseMutation(m));
+  const allDeleteMutations = allDelete.map((m) => createUseMutation(m));
+
+  const allQueries = [...allGetQueries];
+  const allMutations = [
+    ...allPostMutations,
+    ...allPutMutations,
+    ...allPatchMutations,
+    ...allDeleteMutations,
+  ];
+
+  const commonInQueries = allQueries.flatMap(
+    ({ apiResponse, returnType, key, queryKeyFn }) => [
+      apiResponse,
+      returnType,
+      key,
+      queryKeyFn,
+    ]
+  );
+  const commonInMutations = allMutations.flatMap(({ mutationResult }) => [
+    mutationResult,
+  ]);
+
+  const allCommon = [...commonInQueries, ...commonInMutations];
+
+  const mainQueries = allQueries.flatMap(({ queryHook }) => [queryHook]);
+  const mainMutations = allMutations.flatMap(({ mutationHook }) => [
+    mutationHook,
+  ]);
+
+  const mainExports = [...mainQueries, ...mainMutations];
+
+  const allPrefetches = allPrefetchQueries.flatMap(({ prefetchHook }) => [
+    prefetchHook,
+  ]);
+
+  const allPrefetchExports = [...allPrefetches];
+
+  return {
+    /**
+     * Common types and variables between queries and mutations
+     */
+    allCommon,
+    /**
+     * Main exports are the hooks that are used in the components
+     */
+    mainExports,
+    /**
+     * Prefetch exports are the hooks that are used in the prefetch components
+     */
+    allPrefetchExports,
+  };
+};

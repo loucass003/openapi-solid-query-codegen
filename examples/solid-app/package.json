@@ -1,0 +1,32 @@
+{
+  "name": "@loucass003/solid-app",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest",
+    "generate:api": "rimraf ./openapi && node ../../dist/cli.mjs -i ../petstore.yaml -c axios --request ./request.template.ts --format=biome --lint=biome",
+    "test:generated": "tsc -p ./tsconfig.openapi.json --noEmit"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@solidjs/testing-library": "^0.8.5",
+    "@testing-library/jest-dom": "^6.2.0",
+    "@types/testing-library__jest-dom": "^5.14.9",
+    "jsdom": "^23.2.0",
+    "solid-devtools": "^0.29.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vite-plugin-solid": "^2.8.2",
+    "vitest": "^1.2.1"
+  },
+  "dependencies": {
+    "@tanstack/solid-query": "^5.32.1",
+    "axios": "^1.6.7",
+    "solid-js": "^1.8.11"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "name": "@loucass003/openapi-solid-query-codegen",
+  "version": "0.0.1",
+  "description": "OpenAPI Solidjs Query Codegen",
+  "bin": {
+    "openapi-rq": "dist/cli.mjs"
+  },
+  "type": "module",
+  "workspaces": [
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.json",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "preview": "npm run build && npm -C examples/solid-app run generate:api",
+    "prepublishOnly": "npm run build",
+    "release": "npx git-ensure -a && npx bumpp --commit --tag --push",
+    "test": "vitest --coverage.enabled true",
+    "snapshot": "vitest --update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loucass003/openapi-solid-query-codegen.git"
+  },
+  "homepage": "https://github.com/loucass003/openapi-solid-query-codegen",
+  "bugs": "https://github.com/loucass003/openapi-solid-query-codegen/issues",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "codegen",
+    "solid-query",
+    "solidjs",
+    "openapi",
+    "swagger",
+    "typescript",
+    "openapi-typescript-codegen",
+    "@hey-api/openapi-ts"
+  ],
+  "author": "Lucas Lelievre (@loucass003) And Daiki Urata (@7nohe)",
+  "license": "MIT",
+  "dependencies": {
+    "@hey-api/openapi-ts": "0.45.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.2",
+    "@types/node": "^20.10.6",
+    "@vitest/coverage-v8": "^1.5.0",
+    "commander": "^12.0.0",
+    "glob": "^10.3.10",
+    "lefthook": "^1.6.10",
+    "rimraf": "^5.0.5",
+    "ts-morph": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.5.0"
+  },
+  "peerDependencies": {
+    "commander": "12.x",
+    "glob": "10.x",
+    "ts-morph": "22.x",
+    "typescript": "5.x"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
+}

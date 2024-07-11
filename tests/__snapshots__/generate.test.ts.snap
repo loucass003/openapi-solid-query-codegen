@@ -1,0 +1,186 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generate > common.ts 1`] = `
+"// generated with @loucass003/openapi-solid-query-codegen@1.0.0 
+
+import { DefaultService } from "../requests/services.gen";
+export type DefaultServiceFindPetsDefaultResponse = Awaited<ReturnType<typeof DefaultService.findPets>>;
+export type DefaultServiceFindPetsQueryResult<TData = DefaultServiceFindPetsDefaultResponse, TError = unknown> = CreateQueryResult<TData, TError>;
+export const createDefaultServiceFindPetsKey = "DefaultServiceFindPets";
+export const CreateDefaultServiceFindPetsKeyFn = ({ limit, tags }: {
+  limit?: number;
+  tags?: string[];
+} = {}, queryKey?: Array<unknown>) => [createDefaultServiceFindPetsKey, ...(queryKey ?? [{ limit, tags }])];
+export type DefaultServiceGetNotDefinedDefaultResponse = Awaited<ReturnType<typeof DefaultService.getNotDefined>>;
+export type DefaultServiceGetNotDefinedQueryResult<TData = DefaultServiceGetNotDefinedDefaultResponse, TError = unknown> = CreateQueryResult<TData, TError>;
+export const createDefaultServiceGetNotDefinedKey = "DefaultServiceGetNotDefined";
+export const CreateDefaultServiceGetNotDefinedKeyFn = (queryKey?: Array<unknown>) => [createDefaultServiceGetNotDefinedKey, ...(queryKey ?? [])];
+export type DefaultServiceFindPetByIdDefaultResponse = Awaited<ReturnType<typeof DefaultService.findPetById>>;
+export type DefaultServiceFindPetByIdQueryResult<TData = DefaultServiceFindPetByIdDefaultResponse, TError = unknown> = CreateQueryResult<TData, TError>;
+export const createDefaultServiceFindPetByIdKey = "DefaultServiceFindPetById";
+export const CreateDefaultServiceFindPetByIdKeyFn = ({ id }: {
+  id: number;
+}, queryKey?: Array<unknown>) => [createDefaultServiceFindPetByIdKey, ...(queryKey ?? [{ id }])];
+export type DefaultServiceAddPetMutationResult = Awaited<ReturnType<typeof DefaultService.addPet>>;
+export type DefaultServicePostNotDefinedMutationResult = Awaited<ReturnType<typeof DefaultService.postNotDefined>>;
+export type DefaultServiceDeletePetMutationResult = Awaited<ReturnType<typeof DefaultService.deletePet>>;
+"
+`;
+
+exports[`generate > index.ts 1`] = `
+"// generated with @loucass003/openapi-solid-query-codegen@1.0.0 
+
+export * from "./common";
+export * from "./queries";
+"
+`;
+
+exports[`generate > prefetch.ts 1`] = `
+"// generated with @loucass003/openapi-solid-query-codegen@1.0.0 
+
+import { type QueryClient } from "@tanstack/solid-query";
+import { DefaultService } from "../requests/services.gen";
+import * as Common from "./common";
+/**
+* Returns all pets from the system that the user has access to
+* Nam sed condimentum est. Maecenas tempor sagittis sapien, nec rhoncus sem sagittis sit amet. Aenean at gravida augue, ac iaculis sem. Curabitur odio lorem, ornare eget elementum nec, cursus id lectus. Duis mi turpis, pulvinar ac eros ac, tincidunt varius justo. In hac habitasse platea dictumst. Integer at adipiscing ante, a sagittis ligula. Aenean pharetra tempor ante molestie imperdiet. Vivamus id aliquam diam. Cras quis velit non tortor eleifend sagittis. Praesent at enim pharetra urna volutpat venenatis eget eget mauris. In eleifend fermentum facilisis. Praesent enim enim, gravida ac sodales sed, placerat id erat. Suspendisse lacus dolor, consectetur non augue vel, vehicula interdum libero. Morbi euismod sagittis libero sed lacinia.
+*
+* Sed tempus felis lobortis leo pulvinar rutrum. Nam mattis velit nisl, eu condimentum ligula luctus nec. Phasellus semper velit eget aliquet faucibus. In a mattis elit. Phasellus vel urna viverra, condimentum lorem id, rhoncus nibh. Ut pellentesque posuere elementum. Sed a varius odio. Morbi rhoncus ligula libero, vel eleifend nunc tristique vitae. Fusce et sem dui. Aenean nec scelerisque tortor. Fusce malesuada accumsan magna vel tempus. Quisque mollis felis eu dolor tristique, sit amet auctor felis gravida. Sed libero lorem, molestie sed nisl in, accumsan tempor nisi. Fusce sollicitudin massa ut lacinia mattis. Sed vel eleifend lorem. Pellentesque vitae felis pretium, pulvinar elit eu, euismod sapien.
+*
+* @param data The data for the request.
+* @param data.tags tags to filter by
+* @param data.limit maximum number of results to return
+* @returns Pet pet response
+* @returns Error unexpected error
+* @throws ApiError
+*/
+export const prefetchCreateDefaultServiceFindPets = (queryClient: QueryClient, { limit, tags }: {
+  limit?: number;
+  tags?: string[];
+} = {}) => queryClient.prefetchQuery({ queryKey: Common.CreateDefaultServiceFindPetsKeyFn({ limit, tags }), queryFn: () => DefaultService.findPets({ limit, tags }) });
+/**
+* @deprecated
+* This path is not fully defined.
+* @returns unknown unexpected error
+* @throws ApiError
+*/
+export const prefetchCreateDefaultServiceGetNotDefined = (queryClient: QueryClient) => queryClient.prefetchQuery({ queryKey: Common.CreateDefaultServiceGetNotDefinedKeyFn(), queryFn: () => DefaultService.getNotDefined() });
+/**
+* Returns a user based on a single ID, if the user does not have access to the pet
+* @param data The data for the request.
+* @param data.id ID of pet to fetch
+* @returns Pet pet response
+* @returns Error unexpected error
+* @throws ApiError
+*/
+export const prefetchCreateDefaultServiceFindPetById = (queryClient: QueryClient, { id }: {
+  id: number;
+}) => queryClient.prefetchQuery({ queryKey: Common.CreateDefaultServiceFindPetByIdKeyFn({ id }), queryFn: () => DefaultService.findPetById({ id }) });
+"
+`;
+
+exports[`generate > queries.ts 1`] = `
+"// generated with @loucass003/openapi-solid-query-codegen@1.0.0 
+
+import { DefaultService } from "../requests/services.gen";
+import { NewPet } from "../requests/types.gen";
+import * as Common from "./common";
+/**
+* Returns all pets from the system that the user has access to
+* Nam sed condimentum est. Maecenas tempor sagittis sapien, nec rhoncus sem sagittis sit amet. Aenean at gravida augue, ac iaculis sem. Curabitur odio lorem, ornare eget elementum nec, cursus id lectus. Duis mi turpis, pulvinar ac eros ac, tincidunt varius justo. In hac habitasse platea dictumst. Integer at adipiscing ante, a sagittis ligula. Aenean pharetra tempor ante molestie imperdiet. Vivamus id aliquam diam. Cras quis velit non tortor eleifend sagittis. Praesent at enim pharetra urna volutpat venenatis eget eget mauris. In eleifend fermentum facilisis. Praesent enim enim, gravida ac sodales sed, placerat id erat. Suspendisse lacus dolor, consectetur non augue vel, vehicula interdum libero. Morbi euismod sagittis libero sed lacinia.
+*
+* Sed tempus felis lobortis leo pulvinar rutrum. Nam mattis velit nisl, eu condimentum ligula luctus nec. Phasellus semper velit eget aliquet faucibus. In a mattis elit. Phasellus vel urna viverra, condimentum lorem id, rhoncus nibh. Ut pellentesque posuere elementum. Sed a varius odio. Morbi rhoncus ligula libero, vel eleifend nunc tristique vitae. Fusce et sem dui. Aenean nec scelerisque tortor. Fusce malesuada accumsan magna vel tempus. Quisque mollis felis eu dolor tristique, sit amet auctor felis gravida. Sed libero lorem, molestie sed nisl in, accumsan tempor nisi. Fusce sollicitudin massa ut lacinia mattis. Sed vel eleifend lorem. Pellentesque vitae felis pretium, pulvinar elit eu, euismod sapien.
+*
+* @param data The data for the request.
+* @param data.tags tags to filter by
+* @param data.limit maximum number of results to return
+* @returns Pet pet response
+* @returns Error unexpected error
+* @throws ApiError
+*/
+export const createDefaultServiceFindPets = <TData = Common.DefaultServiceFindPetsDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>(cb: () => {
+  data?: {
+    limit?: number;
+    tags?: string[];
+  };
+  queryKey?: TQueryKey;
+  options?: Omit<CreateQueryOptions<TData, TError>, "queryKey" | "queryFn">;
+}) => createQuery<TData, TError>(() => {
+  const options = cb();
+  return { queryKey: Common.CreateDefaultServiceFindPetsKeyFn(options.data, options.queryKey), queryFn: () => DefaultService.findPets(options.data) as TData, ...options.options };
+});
+/**
+* @deprecated
+* This path is not fully defined.
+* @returns unknown unexpected error
+* @throws ApiError
+*/
+export const createDefaultServiceGetNotDefined = <TData = Common.DefaultServiceGetNotDefinedDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>(cb: () => {
+  queryKey?: TQueryKey;
+  options?: Omit<CreateQueryOptions<TData, TError>, "queryKey" | "queryFn">;
+}) => createQuery<TData, TError>(() => {
+  const options = cb();
+  return { queryKey: Common.CreateDefaultServiceGetNotDefinedKeyFn(options.queryKey), queryFn: () => DefaultService.getNotDefined() as TData, ...options.options };
+});
+/**
+* Returns a user based on a single ID, if the user does not have access to the pet
+* @param data The data for the request.
+* @param data.id ID of pet to fetch
+* @returns Pet pet response
+* @returns Error unexpected error
+* @throws ApiError
+*/
+export const createDefaultServiceFindPetById = <TData = Common.DefaultServiceFindPetByIdDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>(cb: () => {
+  data: {
+    id: number;
+  };
+  queryKey?: TQueryKey;
+  options?: Omit<CreateQueryOptions<TData, TError>, "queryKey" | "queryFn">;
+}) => createQuery<TData, TError>(() => {
+  const options = cb();
+  return { queryKey: Common.CreateDefaultServiceFindPetByIdKeyFn(options.data, options.queryKey), queryFn: () => DefaultService.findPetById(options.data) as TData, ...options.options };
+});
+/**
+* Creates a new pet in the store. Duplicates are allowed
+* @param data The data for the request.
+* @param data.requestBody Pet to add to the store
+* @returns Pet pet response
+* @returns Error unexpected error
+* @throws ApiError
+*/
+export const createDefaultServiceAddPet = <TData = Common.DefaultServiceAddPetMutationResult, TError = unknown, TContext = unknown>(cb?: () => Omit<CreateMutationOptions<TData, TError, {
+  requestBody: NewPet;
+}, TContext>, "mutationFn">) => createMutation<TData, TError, {
+  requestBody: NewPet;
+}, TContext>(() => {
+  const options = cb?.() ?? {};
+  return { mutationFn: ({ requestBody }) => DefaultService.addPet({ requestBody }) as unknown as Promise<TData>, ...options };
+});
+/**
+* @deprecated
+* This path is not defined at all.
+* @returns unknown unexpected error
+* @throws ApiError
+*/
+export const createDefaultServicePostNotDefined = <TData = Common.DefaultServicePostNotDefinedMutationResult, TError = unknown, TContext = unknown>(cb?: () => Omit<CreateMutationOptions<TData, TError, void, TContext>, "mutationFn">) => createMutation<TData, TError, void, TContext>(() => {
+  const options = cb?.() ?? {};
+  return { mutationFn: () => DefaultService.postNotDefined() as unknown as Promise<TData>, ...options };
+});
+/**
+* deletes a single pet based on the ID supplied
+* @param data The data for the request.
+* @param data.id ID of pet to delete
+* @returns void pet deleted
+* @returns Error unexpected error
+* @throws ApiError
+*/
+export const createDefaultServiceDeletePet = <TData = Common.DefaultServiceDeletePetMutationResult, TError = unknown, TContext = unknown>(cb?: () => Omit<CreateMutationOptions<TData, TError, {
+  id: number;
+}, TContext>, "mutationFn">) => createMutation<TData, TError, {
+  id: number;
+}, TContext>(() => {
+  const options = cb?.() ?? {};
+  return { mutationFn: ({ id }) => DefaultService.deletePet({ id }) as unknown as Promise<TData>, ...options };
+});
+"
+`;
