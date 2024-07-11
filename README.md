@@ -1,5 +1,9 @@
 # OpenAPI Solid Query Codegen
 
+> This library is a fork based on [openapi-react-query-codegen](https://github.com/7nohe/openapi-react-query-codegen)
+> The code is pretty much the same aside from a few tweaks to work with solidjs
+> Things like useSuspense could not be ported as they do not exist inside solid-query
+
 > Node.js library that generates [Solid Query (also called TanStack Query)](https://tanstack.com/query) hooks based on an OpenAPI specification file.
 
 <!-- [![npm version](https://badge.fury.io/js/%407nohe%2Fopenapi-react-query-codegen.svg)](https://badge.fury.io/js/%407nohe%2Fopenapi-react-query-codegen) -->
