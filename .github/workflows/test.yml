@@ -34,7 +34,7 @@ jobs:
         run: pnpm -w build
 
       - name: Run codegen
-        run: pnpm --filter @loucass003/solid-app generate:api
+        run: pnpm --filter @llelievr.dev/solid-app generate:api
 
       - name: Archive generated query file
         uses: actions/upload-artifact@v4
@@ -43,7 +43,7 @@ jobs:
           path: examples/solid-app/openapi/queries/index.ts
 
       - name: Run tsc
-        run: pnpm --filter @loucass003/solid-app test:generated
+        run: pnpm --filter @llelievr.dev/solid-app test:generated
 
       - name: Run biome
         run: pnpm biome check .

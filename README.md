@@ -17,7 +17,7 @@
 ## Installation
 
 ```
-$ npm install -D @loucass003/openapi-solid-query-codegen
+$ npm install -D @llelievr.dev/openapi-solid-query-codegen
 ```
 
 Register the command to the `scripts` property in your package.json file.
@@ -33,7 +33,7 @@ Register the command to the `scripts` property in your package.json file.
 You can also run the command without installing it in your project using the npx command.
 
 ```bash
-$ npx --package @loucass003/openapi-solid-query-codegen openapi-sq -i ./petstore.yaml -c axios
+$ npx --package @llelievr.dev/openapi-solid-query-codegen openapi-sq -i ./petstore.yaml -c axios
 ```
 
 ## Usage
@@ -221,7 +221,7 @@ pnpm snapshot
 ### Build example and validate generated code
 
 ```bash
-npm run build && pnpm --filter @loucass003/solid-app generate:api && pnpm --filter @loucass003/solid-app test:generated
+npm run build && pnpm --filter @llelievr.dev/solid-app generate:api && pnpm --filter @llelievr.dev/solid-app test:generated
 ```
 
 ## License
